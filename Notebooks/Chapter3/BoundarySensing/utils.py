@@ -24,17 +24,26 @@ def get_msfr_geometry(ax, show_ticks = False):
 
 def create_streamlines(domain, velocity):
 
-    x_grid = np.linspace(0, 2.05, 50)
-    y_grid = np.linspace(-2.26 / 2, 2.26 / 2, 50)
+    x_grid = np.linspace(0, 2.0645, 50)
+    y_grid = np.linspace(0, 2.255, 50)
     X, Y = np.meshgrid(x_grid, y_grid)
 
-    vel_2D = velocity.reshape(-1, 3)
+    vel_2D = velocity.reshape(-1, 2)
 
     U_interp = griddata(domain, vel_2D[:,0], (X, Y), method='linear')
-    V_interp = griddata(domain, vel_2D[:,2], (X, Y), method='linear')
+    V_interp = griddata(domain, vel_2D[:,1], (X, Y), method='linear')
+
+    # Mask the blanket region
+    blanket_x0, blanket_y0 = 1.13, 0.186
+    blanket_w, blanket_h = 0.7, 1.884
+
+    mask = (X > blanket_x0) & (X < blanket_x0 + blanket_w) & \
+           (Y > blanket_y0) & (Y < blanket_y0 + blanket_h)
+
+    U_interp[mask] = np.nan
+    V_interp[mask] = np.nan
 
     return X, Y, U_interp, V_interp
-
 
 def plot_contour(ax, domain, _snap, 
                  vec_mode_to_plot = None, 
