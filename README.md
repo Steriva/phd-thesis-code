@@ -12,3 +12,6 @@ The supporting code is written in Python 3.10: to reproduce the code, installed 
 - Install *torch* and clone the NuSHRED repository from [here](https://github.com/ERMETE-Lab/NuSHRED).
 
 A conda environment is provided in the `environment.yml` file.
+
+## Contact Information
+For any questions regarding the code, please contact Stefano Riva at stefano.riva@polimi.it

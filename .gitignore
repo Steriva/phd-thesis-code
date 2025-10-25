@@ -1,7 +1,8 @@
 __pycache__/
 
 # Data
-Data/*
+Data/
+phd_thesis_datasets.zip
 Notebooks/Chapter*/*/Results/
 
 # Mac
