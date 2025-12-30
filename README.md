@@ -2,7 +2,7 @@
 
 This repository contains some code used to produce the results in the thesis "Advanced Data-Driven Techniques for State Estimation in Nuclear Reactors" by Stefano Riva in Nuclear Engineering at Politecnico di Milano, 2025.
 
-The code is organized in folders, each containing a specific part of the thesis.
+The code is organized in folders, each containing a specific part of the thesis. The data used to produce the results can be downloaded from the Zenodo repository at the following [link](https://doi.org/10.5281/zenodo.18097707).
 
 ## Requirements
 
